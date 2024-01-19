@@ -1,4 +1,4 @@
-board = [
+default_board = [
     ["r", "n", "b", "q", "k", "b", "n", "r"],
     ["p", "p", "p", "p", "p", "p", "p", "p"],
     [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -10,17 +10,25 @@ board = [
 ]
 
 
-def print_board(current_board):
-    for row in current_board:
+def print_board(board):
 
-        cellCount = 0
-        rank = ""
+    # This variable is used to track which rank is being handled.
+    rank_num = 8
+
+    for row in board:
+
+        rank = "{rankNum}.  ".format(rankNum=rank_num)
+        rank_num -= 1
+
+        # Similar to the variable rank_num, this is used to keep track of which cell in the rank
+        # is being handled.
+        cell_count = 0
 
         for cell in row:
 
-            cellCount += 1
+            cell_count += 1
 
-            if cellCount == len(row):
+            if cell_count == len(row):
                 if cell == " ":
 
                     rank += "| _ |"
@@ -38,5 +46,8 @@ def print_board(current_board):
 
         print(rank)
 
+    print("   __________________________________")
+    print("      A   B   C   D   E   F   G   H")
 
-print_board(board)
+
+print_board(default_board)
