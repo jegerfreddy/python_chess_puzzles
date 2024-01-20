@@ -75,7 +75,6 @@ def get_board_map(board):
 
     # rank-/file_index tracks which file and rank we are indexing through the for-loops
     rank_index = 8
-    file_index = 1
 
     # We use the i variable to specify where to store to data in the array,
     # we could use rank_index - 1 here, but it would look messy...
@@ -94,13 +93,15 @@ def get_board_map(board):
 
     for row in board:
 
+        file_index = 1
+
         for cell in row:
 
             board_map[i].append((file_index, rank_index, cell))
 
             file_index += 1
 
-        rank_index += 1
+        rank_index -= 1
         i += 1
 
     return board_map
@@ -108,7 +109,7 @@ def get_board_map(board):
 
 current_board_map = get_board_map(default_piece_positions)
 
-print(map)
+print(current_board_map)
 
 
 def print_board(board):
