@@ -14,4 +14,8 @@ Example:
 
 _ (underscores) represents an empty square on the board.  
 Lowercase letters represents blacks pieces, and capital letters represents  
-the white pieces.
+the white pieces.  
+
+** calculate_piece_positions **
+
+to calculate 

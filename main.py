@@ -68,21 +68,20 @@ pawn_moves = [
 ]
 
 
-def calculate_piece_positions(board):
+def get_board_map(board):
 
-    rank_index = 0
-    file_index = 0
-    piece_positions = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
-    piece_coordinates = [
+    # This function takes a given board and maps out what pieces are on the board,
+    # and which coordinates they have.
+
+    # rank-/file_index tracks which file and rank we are indexing through the for-loops
+    rank_index = 8
+    file_index = 1
+
+    # We use the i variable to specify where to store to data in the array,
+    # we could use rank_index - 1 here, but it would look messy...
+    i = 0
+
+    board_map = [
         [],
         [],
         [],
@@ -97,22 +96,19 @@ def calculate_piece_positions(board):
 
         for cell in row:
 
-            piece_positions[rank_index].append(cell)
-            piece_coordinates[rank_index].append((rank_index + 1, file_index + 1))
+            board_map[i].append((file_index, rank_index, cell))
 
             file_index += 1
 
         rank_index += 1
+        i += 1
 
-    return [piece_positions, piece_coordinates]
+    return board_map
 
 
-calculation = calculate_piece_positions(default_piece_positions)
+current_board_map = get_board_map(default_piece_positions)
 
-print(calculation)
-
-white = Player.Player()
-black = Player.Player()
+print(map)
 
 
 def print_board(board):
