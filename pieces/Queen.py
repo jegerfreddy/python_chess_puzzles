@@ -1,7 +1,7 @@
 from pieces.Piece import Piece
 
 
-class Rook(Piece):
+class Queen(Piece):
 
     def move(self):
         if self.color == "white" and self.pos[1] < 8:

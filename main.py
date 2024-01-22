@@ -1,4 +1,4 @@
-from pieces import Pawn, Rook
+from pieces import Pawn, Rook, Bishop, Knight, Queen, King
 
 default_piece_positions = [
     ["r", "n", "b", "q", "k", "b", "n", "r"],
@@ -65,22 +65,44 @@ def get_board_map(board):
                 black_pieces.append(rook)
 
             elif cell == "B":
-                #Bishop
+                bishop = Bishop.Bishop("white", (file_index, rank_index))
+
+                white_pieces.append(bishop)
 
             elif cell == "b":
+                bishop = Bishop.Bishop("black", (file_index, rank_index))
+
+                black_pieces.append(bishop)
 
             elif cell == "N":
+                knight = Knight.Knight("white", (file_index, rank_index))
+
+                white_pieces.append(knight)
 
             elif cell == "n":
+                knight = Knight.Knight("black", (file_index, rank_index))
+
+                black_pieces.append(knight)
 
             elif cell == "Q":
+                queen = Queen.Queen("white", (file_index, rank_index))
+
+                white_pieces.append(queen)
 
             elif cell == "q":
+                queen = Queen.Queen("black", (file_index, rank_index))
+
+                black_pieces.append(queen)
 
             elif cell == "K":
+                king = King.King("white", (file_index, rank_index))
+
+                white_pieces.append(king)
 
             elif cell == "k":
-                #king
+                king = King.King("black", (file_index, rank_index))
+
+                black_pieces.append(king)
 
             file_index += 1
 
