@@ -114,8 +114,6 @@ def get_board_map(board):
 
 current_board_map = get_board_map(default_piece_positions)
 
-print(current_board_map)
-
 
 def print_board(board):
     # This variable is used to track which rank is being handled.
@@ -135,22 +133,24 @@ def print_board(board):
             cell_count += 1
 
             if cell_count == len(row):
-                if cell == " ":
+                if cell[2] == " ":
 
                     rank += "| _ |"
 
                 else:
-                    rank += "| {piece} |".format(piece=cell)
+                    rank += "| {piece} |".format(piece=cell[2])
 
             else:
-                if cell == " ":
+                if cell[2] == " ":
 
                     rank += "| _ "
 
                 else:
-                    rank += "| {piece} ".format(piece=cell)
+                    rank += "| {piece} ".format(piece=cell[2])
 
         print(rank)
 
     print("   __________________________________")
     print("      A   B   C   D   E   F   G   H")
+
+print_board(current_board_map)
