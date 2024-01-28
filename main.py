@@ -11,13 +11,11 @@ default_piece_positions = [
     ["R", "N", "B", "Q", "K", "B", "N", "R"]
 ]
 
-white_pieces = []
-black_pieces = []
-
 
 # This function takes a given board and maps out what pieces are on the board,
-# and which coordinates they have.
+# and which coordinates(file/rank) they are standing on.
 def get_board_map(board):
+
     # rank-/file_index tracks which file and rank we are indexing through the for-loops
     rank_index = 8
 
@@ -44,66 +42,6 @@ def get_board_map(board):
 
             board_map[i].append((file_index, rank_index, cell))
 
-            if cell == "P":
-                pawn = Pawn.Pawn("white", (file_index, rank_index))
-
-                white_pieces.append(pawn)
-
-            elif cell == "p":
-                pawn = Pawn.Pawn("black", (file_index, rank_index))
-
-                black_pieces.append(pawn)
-
-            elif cell == "R":
-                rook = Rook.Rook("white", (file_index, rank_index))
-
-                white_pieces.append(rook)
-
-            elif cell == "r":
-                rook = Rook.Rook("black", (file_index, rank_index))
-
-                black_pieces.append(rook)
-
-            elif cell == "B":
-                bishop = Bishop.Bishop("white", (file_index, rank_index))
-
-                white_pieces.append(bishop)
-
-            elif cell == "b":
-                bishop = Bishop.Bishop("black", (file_index, rank_index))
-
-                black_pieces.append(bishop)
-
-            elif cell == "N":
-                knight = Knight.Knight("white", (file_index, rank_index))
-
-                white_pieces.append(knight)
-
-            elif cell == "n":
-                knight = Knight.Knight("black", (file_index, rank_index))
-
-                black_pieces.append(knight)
-
-            elif cell == "Q":
-                queen = Queen.Queen("white", (file_index, rank_index))
-
-                white_pieces.append(queen)
-
-            elif cell == "q":
-                queen = Queen.Queen("black", (file_index, rank_index))
-
-                black_pieces.append(queen)
-
-            elif cell == "K":
-                king = King.King("white", (file_index, rank_index))
-
-                white_pieces.append(king)
-
-            elif cell == "k":
-                king = King.King("black", (file_index, rank_index))
-
-                black_pieces.append(king)
-
             file_index += 1
 
         rank_index -= 1
@@ -113,6 +51,8 @@ def get_board_map(board):
 
 
 current_board_map = get_board_map(default_piece_positions)
+
+print(current_board_map)
 
 
 def print_board(board):
@@ -152,5 +92,6 @@ def print_board(board):
 
     print("   __________________________________")
     print("      A   B   C   D   E   F   G   H")
+
 
 print_board(current_board_map)
